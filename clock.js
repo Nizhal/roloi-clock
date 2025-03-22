@@ -11,13 +11,13 @@ if (document.addEventListener) {
 function draw () {
     let time = (function () {
             let midnight = new Date();
-            midnight.setHours(0);
+            midnight.setHours(18);
             midnight.setMinutes(0);
             midnight.setSeconds(0);
             midnight.setMilliseconds(0);
             return Date.now() - midnight.getTime();
         })(),
-        hours = time / (60 * 60 * 1000),
+        hours = time / (24 * 60 * 1000),
         minutes = hours * 60 % 60,
         seconds = minutes * 60 % 60,
         
