@@ -38,12 +38,14 @@ function draw () {
     digital();
     logo();
     secondHand();
+    minuteHand();
+    hourHand();
   
     function face () {
         // Background
         ctx.beginPath();
         ctx.arc(c.x, c.y, size / 2, 0, Math.PI * 2);
-        ctx.fillStyle = "#1a1a1a";
+        ctx.fillStyle = "#001a1a";
         ctx.fill();
 
         // Dashes
@@ -108,6 +110,38 @@ function draw () {
     
         for (let i = 0; i < seconds; i++) {
             let r = (size -20) / 2,
+                l = 0;
+            ctx.strokeStyle = '#7fff00';
+            
+            let v = new Vector(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
+            ctx.beginPath();
+            ctx.moveTo(v.getX() + c.x, v.getY() + c.y);
+            v.setMag(r + l);
+            ctx.lineTo(v.getX() + c.x, v.getY() + c.y);
+            ctx.stroke();
+        } 
+    }  
+    function minuteHand () {
+        ctx.lineWidth = 12;
+    
+        for (let i = 0; i < minutes; i++) {
+            let r = (size -20) / 2 -20,
+                l = 0;
+            ctx.strokeStyle = '#7fff00';
+            
+            let v = new Vector(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
+            ctx.beginPath();
+            ctx.moveTo(v.getX() + c.x, v.getY() + c.y);
+            v.setMag(r + l);
+            ctx.lineTo(v.getX() + c.x, v.getY() + c.y);
+            ctx.stroke();
+        } 
+    }  
+    function hourHand () {
+        ctx.lineWidth = 12;
+    
+        for (let i = 0; i < hours; i++) {
+            let r = (size -20) / 2 -40,
                 l = 0;
             ctx.strokeStyle = '#7fff00';
             
