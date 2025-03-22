@@ -1,0 +1,108 @@
+let canvas, ctx;
+if (document.addEventListener) {
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    }, false);
+} else {
+    document.attachEvent('oncontextmenu', function () {
+        window.event.returnValue = false;
+    });
+}
+function வரைந்திடு () {
+    let time = (function () {
+            let midnight = new Date();
+            midnight.setHours(18);
+            midnight.setMinutes(0);
+            midnight.setSeconds(0);
+            midnight.setMilliseconds(0);
+            return Date.now() - midnight.getTime();
+        })(),
+        நாழிகை = time / (24 * 60 * 1000),
+        துளி = நாழிகை * 60 % 60,
+        தற்பாரை = துளி * 60 % 60,
+        
+        நாழிகைசரம் = Math.trunc(நாழிகை);
+        துளிசரம் = Math.trunc(துளி);
+        தற்பாரைசரம் = Math.trunc(தற்பாரை);
+        நாழிகைசரம் = ("0" + நாழிகைசரம்).slice(-2);
+        துளிசரம் = ("0" + துளிசரம்).slice(-2);
+        தற்பாரைசரம் = ("0" + தற்பாரைசரம்).slice(-2);
+        digitalClock = (நாழிகைசரம் + ":" + துளிசரம் + ":" + தற்பாரைசரம்)
+                
+    ctx.clearRect(0, 0, size, size);
+
+    ctx.lineCap = 'round';
+    c = {x: size / 2, y: size / 2};
+
+    face();
+    digital();
+    logo();
+    புள்ளிகள் (தற்பாரை, (size -20) / 2, '#FF0000');
+    புள்ளிகள் (துளி, (size -20) / 2 -30, '#0000FF');
+    புள்ளிகள் (நாழிகை, (size -20) / 2 -60, '#00FF00');
+  
+    function face () {
+        // பின்னணி
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, size / 2, 0, Math.PI * 2);
+        ctx.fillStyle = "#101010";
+        ctx.fill();
+        புள்ளிகள் (60, (size -20) / 2, 'rgb(25, 0, 0)');
+        புள்ளிகள் (60, (size -20) / 2 -30, 'rgb(25, 25, 70)');
+        புள்ளிகள் (60, (size -20) / 2 -60, 'rgb(0, 25, 0)');
+    }
+
+    function digital () {
+        ctx.font = "800 5rem Helvetica";
+        ctx.fillStyle = "red"
+        ctx.textAlign = "center";
+        ctx.fillText(digitalClock, size/2, (size/2)+25);
+    }
+
+    function logo () {
+        ctx.font = "800 2rem serif";
+        ctx.fillStyle = "#004d1a"
+        ctx.textAlign = "center";
+        ctx.fillText("தமிழ் நேரம்", size/2, (size/4)*3);
+    }
+
+    function புள்ளிகள் (நீளம், ஆரம், நிறம்) {
+        ctx.lineWidth = 12;
+    
+        for (let i = 0; i < நீளம்; i++) {
+            let r = ஆரம்,
+                l = 0;
+            ctx.strokeStyle = நிறம்;
+            
+            let v = new Vector(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
+            ctx.beginPath();
+            ctx.moveTo(v.getX() + c.x, v.getY() + c.y);
+            v.setMag(r + l);
+            ctx.lineTo(v.getX() + c.x, v.getY() + c.y);
+            ctx.stroke();
+        } 
+    }  
+}
+
+function init () {
+    canvas = document.getElementById('நேரம்');
+    width = window.innerWidth / 5 * 4.65;
+    height = window.innerHeight / 5 * 4.65;
+    if (width > height) {
+        size = height
+    }
+    else {
+        size = width
+    }
+    //size = height
+    console.log(width +"*"+ height)
+    console.log("size: " + size)
+    canvas.width = canvas.height = size;
+    console.log("canvas.width: " + canvas.width)
+    console.log("canvas.height: " + canvas.height)
+    ctx = canvas.getContext('2d');
+  
+    setInterval(வரைந்திடு, 10); 
+}
+
+init();

@@ -3,7 +3,7 @@ body {
     font-family: 'Open Sans';
 }
 
-.grid {
+.பின்னல் {
     display: grid;
     grid-template-columns: auto 99% auto;
     grid-template-rows: auto 95% auto;
@@ -11,7 +11,7 @@ body {
     padding: 0px;
 }
 
-#box {
+#பெட்டி {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -19,7 +19,7 @@ body {
     width: 100%;
 }
 
-#clock {
+#நேரம் {
     display: block; 
     margin-left: auto;
     margin-right: auto;
