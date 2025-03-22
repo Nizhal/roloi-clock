@@ -74,7 +74,7 @@ function வரைந்திடு () {
                 l = 0;
             ctx.strokeStyle = நிறம்;
             
-            let v = new Vector(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
+            let v = new திசை(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
             ctx.beginPath();
             ctx.moveTo(v.getX() + c.x, v.getY() + c.y);
             v.setMag(r + l);

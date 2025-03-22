@@ -1,6 +1,5 @@
-function Vector (magnitude, angle) {
+function திசை (magnitude, angle) {
     var m, a;
-
     this.getX = function () {
         return m * Math.cos(a);
     };
@@ -38,31 +37,31 @@ function Vector (magnitude, angle) {
     };
 
     this.add = function (v) {
-        return Vector.add(this, v);
+        return திசை.add(this, v);
     };
 
     this.subtract = function (v) {
-        return Vector.subtract(this, v);
+        return திசை.subtract(this, v);
     };
 
     this.setMag(magnitude);
     this.setAngle(angle);
 }
 
-Vector.rectangular = function (x, y) {
+திசை.rectangular = function (x, y) {
     var m = Math.sqrt(x * x + y * y),
         a = Math.atan2(y, x);
-    return new Vector(m, a);
+    return new திசை(m, a);
 };
 
-Vector.polar = function (m, a) {
-    return new Vector(m, a);
+திசை.polar = function (m, a) {
+    return new திசை(m, a);
 };
 
-Vector.add = function (v1, v2) {
-    return Vector.rectangular(v1.getX() + v2.getX(), v1.getY() + v2.getY());
+திசை.add = function (v1, v2) {
+    return திசை.rectangular(v1.getX() + v2.getX(), v1.getY() + v2.getY());
 };
 
-Vector.subtract = function (v1, v2) {
-    return Vector.rectangular(v1.getX() - v2.getX(), v1.getY() - v2.getY());
+திசை.subtract = function (v1, v2) {
+    return திசை.rectangular(v1.getX() - v2.getX(), v1.getY() - v2.getY());
 };
