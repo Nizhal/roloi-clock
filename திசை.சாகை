@@ -1,6 +1,6 @@
 function திசை (magnitude, angle) {
     var m, a;
-    this.getX = function () {
+    this.அபெறு = function () {
         return m * Math.cos(a);
     };
 
@@ -10,7 +10,7 @@ function திசை (magnitude, angle) {
         a = Math.atan2(y, x);
     };
 
-    this.getY = function () {
+    this.கபெறு = function () {
         return m * Math.sin(a);
     };
 
@@ -59,9 +59,9 @@ function திசை (magnitude, angle) {
 };
 
 திசை.add = function (v1, v2) {
-    return திசை.rectangular(v1.getX() + v2.getX(), v1.getY() + v2.getY());
+    return திசை.rectangular(v1.அபெறு() + v2.அபெறு(), v1.கபெறு() + v2.கபெறு());
 };
 
 திசை.subtract = function (v1, v2) {
-    return திசை.rectangular(v1.getX() - v2.getX(), v1.getY() - v2.getY());
+    return திசை.rectangular(v1.அபெறு() - v2.அபெறு(), v1.கபெறு() - v2.கபெறு());
 };
