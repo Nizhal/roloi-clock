@@ -51,7 +51,7 @@ function draw () {
         for (let i = 0; i < 60; i++) {
             let r = (size -20) / 2,
                 l = 0;
-            ctx.strokeStyle = 'rgb(100, 35, 35)';
+            ctx.strokeStyle = 'rgb(100, 70, 70)';
             let v = new Vector(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
             ctx.beginPath();
             ctx.moveTo(v.getX() + c.x, v.getY() + c.y);
@@ -60,19 +60,32 @@ function draw () {
             ctx.stroke();  
         }
 
-        // 5 second dashes
+        // second dashes
         ctx.lineWidth = 12;
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 60; i++) {
             let r = ((size -20) / 2) -20,
                 l = 0;
-            ctx.strokeStyle = '#ff0000';
-
-            let v = new Vector(r, Math.PI * 2 * (i / 12) - Math.PI / 2);
+            ctx.strokeStyle = 'rgb(100, 35, 35)';
+            let v = new Vector(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
             ctx.beginPath();
             ctx.moveTo(v.getX() + c.x, v.getY() + c.y);
             v.setMag(r + l);
             ctx.lineTo(v.getX() + c.x, v.getY() + c.y);
             ctx.stroke();
+            
+        // முன்றாவது Dashes
+        ctx.lineWidth = 12;
+        for (let i = 0; i < 60; i++) {
+            let r = (size -20) / 2 - 40,
+                l = 0;
+            ctx.strokeStyle = 'rgb(100, 0, 0)';
+            let v = new Vector(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
+            ctx.beginPath();
+            ctx.moveTo(v.getX() + c.x, v.getY() + c.y);
+            v.setMag(r + l);
+            ctx.lineTo(v.getX() + c.x, v.getY() + c.y);
+            ctx.stroke();  
+        }
         }
     }
 
@@ -87,7 +100,7 @@ function draw () {
         ctx.font = "800 2rem serif";
         ctx.fillStyle = "#004d1a"
         ctx.textAlign = "center";
-        ctx.fillText("ROLÔI", size/2, (size/4)*3);
+        ctx.fillText("தமிழ் நேரம்", size/2, (size/4)*3);
     }
 
     function secondHand () {
