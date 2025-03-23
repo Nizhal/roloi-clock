@@ -1,4 +1,4 @@
-function திசை (magnitude, angle) {
+function திசை (அளவு, கோணம்) {
     var ஐ, ஃ;
     this.அபெறு = function () {
         return ஐ * Math.cos(ஃ);
@@ -24,16 +24,16 @@ function திசை (magnitude, angle) {
         return ஐ;
     };
 
-    this.setMag = function (magnitude) {
-        ஐ = magnitude;
+    this.ஐஅமை = function (அளவு) {
+        ஐ = அளவு;
     };
 
     this.getAngle = function () {
         return ஃ;
     };
 
-    this.setAngle = function (angle) {
-        ஃ = angle;
+    this.ஃஅமை = function (கோணம்) {
+        ஃ = கோணம்;
     };
 
     this.add = function (v) {
@@ -44,8 +44,8 @@ function திசை (magnitude, angle) {
         return திசை.subtract(this, v);
     };
 
-    this.setMag(magnitude);
-    this.setAngle(angle);
+    this.ஐஅமை(அளவு);
+    this.ஃஅமை(கோணம்);
 }
 
 திசை.rectangular = function (x, y) {
