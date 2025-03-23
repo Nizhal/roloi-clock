@@ -1,39 +1,39 @@
 function திசை (magnitude, angle) {
-    var m, a;
+    var ஐ, ஃ;
     this.அபெறு = function () {
-        return m * Math.cos(a);
+        return ஐ * Math.cos(ஃ);
     };
 
-    this.setX = function (x) {
-        var y = m * Math.sin(a);
-        m = Math.sqrt((x * x) + (y * y));
-        a = Math.atan2(y, x);
+    this.அஅமை = function (அ) {
+        var க = ஐ * Math.sin(ஃ);
+        ஐ = Math.sqrt((அ * அ) + (க * க));
+        ஃ = Math.atan2(க, அ);
     };
 
     this.கபெறு = function () {
-        return m * Math.sin(a);
+        return ஐ * Math.sin(ஃ);
     };
 
-    this.setY = function (y) {
-        var x = m * Math.cos(a);
-        m = Math.sqrt((x * x) + (y * y));
-        a = Math.atan2(y, x);
+    this.கஅமை = function (க) {
+        var அ = ஐ * Math.cos(ஃ);
+        ஐ = Math.sqrt((அ * அ) + (க * க));
+        ஃ = Math.atan2(க, அ);
     };
 
     this.getMag = function () {
-        return m;
+        return ஐ;
     };
 
     this.setMag = function (magnitude) {
-        m = magnitude;
+        ஐ = magnitude;
     };
 
     this.getAngle = function () {
-        return a;
+        return ஃ;
     };
 
     this.setAngle = function (angle) {
-        a = angle;
+        ஃ = angle;
     };
 
     this.add = function (v) {
@@ -49,13 +49,13 @@ function திசை (magnitude, angle) {
 }
 
 திசை.rectangular = function (x, y) {
-    var m = Math.sqrt(x * x + y * y),
-        a = Math.atan2(y, x);
-    return new திசை(m, a);
+    var ஐ = Math.sqrt(x * x + y * y),
+        ஃ = Math.atan2(y, x);
+    return new திசை(ஐ, ஃ);
 };
 
-திசை.polar = function (m, a) {
-    return new திசை(m, a);
+திசை.polar = function (ஐ, ஃ) {
+    return new திசை(ஐ, ஃ);
 };
 
 திசை.add = function (v1, v2) {
