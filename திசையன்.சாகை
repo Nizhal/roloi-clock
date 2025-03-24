@@ -20,7 +20,7 @@ function திசை (அளவு, கோணம்) {
         ஃ = Math.atan2(க, அ);
     };
 
-    this.getMag = function () {
+    this.ஐபெறு = function () {
         return ஐ;
     };
 
@@ -28,7 +28,7 @@ function திசை (அளவு, கோணம்) {
         ஐ = அளவு;
     };
 
-    this.getAngle = function () {
+    this.ஃபெறு = function () {
         return ஃ;
     };
 
@@ -36,32 +36,32 @@ function திசை (அளவு, கோணம்) {
         ஃ = கோணம்;
     };
 
-    this.add = function (v) {
-        return திசை.add(this, v);
+    this.கூட்டு = function (தி) {
+        return திசை.கூட்டு(this, தி);
     };
 
-    this.subtract = function (v) {
-        return திசை.subtract(this, v);
+    this.கழி = function (தி) {
+        return திசை.கழி(this, தி);
     };
 
     this.ஐஅமை(அளவு);
     this.ஃஅமை(கோணம்);
 }
 
-திசை.rectangular = function (x, y) {
-    var ஐ = Math.sqrt(x * x + y * y),
-        ஃ = Math.atan2(y, x);
+திசை.செவ்வகம் = function (அ, க) {
+    var ஐ = Math.sqrt(அ * அ + க * க),
+        ஃ = Math.atan2(க, அ);
     return new திசை(ஐ, ஃ);
 };
 
-திசை.polar = function (ஐ, ஃ) {
+திசை.துருவம் = function (ஐ, ஃ) {
     return new திசை(ஐ, ஃ);
 };
 
-திசை.add = function (v1, v2) {
-    return திசை.rectangular(v1.அபெறு() + v2.அபெறு(), v1.கபெறு() + v2.கபெறு());
+திசை.கூட்டு = function (தி1, தி2) {
+    return திசை.செவ்வகம்(தி1.அபெறு() + தி2.அபெறு(), தி1.கபெறு() + தி2.கபெறு());
 };
 
-திசை.subtract = function (v1, v2) {
-    return திசை.rectangular(v1.அபெறு() - v2.அபெறு(), v1.கபெறு() - v2.கபெறு());
+திசை.கழி = function (தி1, தி2) {
+    return திசை.செவ்வகம்(தி1.அபெறு() - தி2.அபெறு(), தி1.கபெறு() - தி2.கபெறு());
 };

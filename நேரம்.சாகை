@@ -81,13 +81,12 @@ function வரைந்திடு () {
         சூழல்.lineWidth = 12;
     
         for (let ஐ = 0; ஐ < நீளம்; ஐ++) {
-            let l = 0;
             சூழல்.strokeStyle = நிறம்;
-            let v = new திசை(ஆரம், Math.PI * 2 * (ஐ / 60));
+            let தி = new திசை(ஆரம், Math.PI * 2 * (ஐ / 60));
             சூழல்.beginPath();
-            சூழல்.moveTo(v.அபெறு() + நடு.அ, v.கபெறு() + நடு.க);
-            v.ஐஅமை(ஆரம் + l);
-            சூழல்.lineTo(v.அபெறு() + நடு.அ, v.கபெறு() + நடு.க);
+            சூழல்.moveTo(தி.அபெறு() + நடு.அ, தி.கபெறு() + நடு.க);
+            தி.ஐஅமை(ஆரம்);
+            சூழல்.lineTo(தி.அபெறு() + நடு.அ, தி.கபெறு() + நடு.க);
             சூழல்.stroke();
         } 
     }  
@@ -95,15 +94,15 @@ function வரைந்திடு () {
 
 function தொடங்கு () {
     சித்திரப்பாடம் = document.getElementById('வட்டம்');
-    width = window.innerWidth / 5 * 4.65;
-    height = window.innerHeight / 5 * 4.65;
-    if (width > height) {
-        அளவு = height
+    அகலம் = window.innerWidth / 5 * 4.65;
+    உயரம் = window.innerHeight / 5 * 4.65;
+    if (அகலம் > உயரம்) {
+        அளவு = உயரம்
     }
     else {
-        அளவு = width
+        அளவு = அகலம்
     }
-    console.log(width +"*"+ height)
+    console.log(அகலம் +"*"+ உயரம்)
     console.log("அளவு: " + அளவு)
     சித்திரப்பாடம்.width = சித்திரப்பாடம்.height = அளவு;
     console.log("சித்திரப்பாடம்.அகலம்: " + சித்திரப்பாடம்.width)
